@@ -1,5 +1,6 @@
 import React,{Fragment} from 'react';
 import "../assets/css/ContactStyles.css";
+import {FaMap, FaPhone, FaEnvelope} from "react-icons/fa"
 import NavBar from "../NavBar";
 
 const Contact = () => {
@@ -15,19 +16,19 @@ const Contact = () => {
             <div className="contact-wrapper contact-grid">
                 <div className="contact-info">
                     <div className="contact-info-item">
-                        <i className="fas fa-map-marker-alt"></i>
+                        <FaMap className='contact-info-items-icon'/>
                         <h3>Address</h3>
                         <p>8, Ekere Street comfort Oboh,kirikiri town, lagos</p>
                     </div>
 
-
                     <div className="contact-info-item">
-                        <i className="fas fa-phone"></i>
+                        <FaPhone className='contact-info-items-icon'/>
                         <h3>Call Us</h3>
                         <p>+234 8101605165..</p>
                     </div>
                     <div className="contact-info-item">
-                        <i className="fas fa-envelope"></i>
+                        
+                        <FaEnvelope className='contact-info-items-icon'/>
                         <h3>Email Us</h3>
                         <p>dauducharles1994@gmail.com</p>
                     </div>

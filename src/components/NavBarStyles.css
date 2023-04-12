@@ -37,10 +37,11 @@
     align-items: center;
     z-index: 999;
 }
-#navbar .fa-plane{
+#navbar .FaBlog{
     color: var(--btnBgColor1);
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     padding-right: 0.4rem;
+    
 }
 #navbar .nav-menu{
     display: flex;
@@ -48,9 +49,33 @@
     align-items: center;
     
 }
+.nav-categories-wrapper{
+    width: 130px;
+    height: 200px;
+    position: absolute;
+    top: 30px;
+    left: -21px;
+    padding: 0;
+    background-color: var(--backgroundColor2);
+    border-radius: var(--btnBorderRadius);
+    transition: 1.4s;
+    display: none;
+
+}
+.showCategories{
+    display: block;
+}
+.nav-categories-wrapper ul{
+    width: 100%;
+    padding-top: 15px;
+}
+.nav-categories-wrapper ul li{
+    margin-bottom: 15px;
+}
 #navbar .nav-menu li{
     list-style: none;
     margin-left: 25px;
+    position: relative;
 }
 #navbar .nav-menu li i{
    padding: 0 5px;
@@ -59,15 +84,15 @@
     margin-left: 30px;
     display: none;
 }
-#navbar .nav-menu .menu-exit-wrapper .fa-times{
+#navbar .nav-menu .menu-exit-wrapper .FaTimes{
     margin: 10px;
-   font-size: 3rem;
+   font-size: 2rem;
 }
 #navbar .hamburger{
     display: none;
 }
-#navbar .hamburger .fa.fa-bars{
-    font-size: 3rem;
+#navbar .hamburger .FaHamburger{
+    font-size: 1.7rem;
 }
 
 #navbar a{
@@ -130,6 +155,22 @@
         list-style: none;
         margin-left: 25px;
         font-size: 20px;
+    }
+    .nav-categories-wrapper{
+        width: 200px;
+        height: 260px;
+        position: absolute;
+        top: 40px;
+        left: -50px;
+        padding: 0;
+        background-color: var(--backgroundColor1);
+        transition: 1.4s;
+        display: none;
+        z-index: 90;
+    
+    }
+    .showCategories{
+        display: block;
     }
    
     /* #navbar .nav-menu li a{
