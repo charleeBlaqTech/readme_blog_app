@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react';
+import React,{Fragment, useEffect,useState} from 'react';
 import { Link } from 'react-router-dom';
 import "../assets/css/HomeStyles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,14 +8,13 @@ import NavBar from "../NavBar";
 
 
 const Home = () => {
+  const [postsData, setPostsData] = useState([]);
 
-// const cardStyle={
-//   display: "flex",
-//   flexDirection: "column",
-//   justifyContent: 'center',
-//   alignItems: 'center',
-//   backgroundColor:"red",
-// }
+  useEffect(()=>{
+      fetch('/posts').then(response=>response.json()).then((data)=>{
+        setPostsData(data);
+      })
+  }, [])
 
      
   return (
@@ -28,51 +27,29 @@ const Home = () => {
             </Col>
             <Col sm={10} className=''>
               <Row>
+              {
+                postsData.map((item)=>{
 
-                <Col sm={4} xs={12} className="mb-4">
-                    <Card >
-                      <Card.Img variant="top" src="https://media.istockphoto.com/id/1462664485/photo/top-view-woman-and-phone-on-exercise-mat-for-social-media-mobile-app-and-reading-fitness-blog.jpg?b=1&s=170667a&w=0&k=20&c=RY7UtuFOFjhNQpwPPoi5gZTuPf-UPrGqBVhIoJW-e6k=" alt='img'/>
-                      <Card.Body>
-                        <Card.Title className='text-center'>
-                          great development in Nigeria Politics
-                        </Card.Title>
-                        <Card.Text className='text-center'>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate.
-                        </Card.Text>
-                        <Button className='btn-btn w-100'><Link to="/blog">Read More</Link></Button>
-                      </Card.Body>
-                    </Card>
-                </Col>
+                  return (
+                    <Col sm={4} xs={12} className="mb-4">
+                      <Card >
+                        <Card.Img variant="top" src={item.image} alt='img'/>
+                        <Card.Body>
+                          <Card.Title className='text-center'>
+                           {item.title}
+                          </Card.Title>
+                          <Card.Text className='text-center'>
+                            {item.description}
+                          </Card.Text>
+                          <Button className='btn-btn w-100'><Link to={`/posts/${item.id}`}>Read More</Link></Button>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  )
 
-                <Col sm={4} xs={12} className="mb-4">
-                    <Card >
-                      <Card.Img variant="top"  src='https://media.istockphoto.com/id/855341578/photo/creativity-checked.jpg?b=1&s=170667a&w=0&k=20&c=NHeyPIHEWmztch-Hb9wVZ1VNwIdQvOFsayk8HTz4XCg=' alt='img'/>
-                      <Card.Body>
-                        <Card.Title className='text-center' >
-                          great development in Nigeria Politics
-                        </Card.Title>
-                        <Card.Text className='text-center'>
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate.
-                        </Card.Text>
-                        <Button  className='btn-btn w-100'><Link to="/blog">Read More</Link></Button>
-                      </Card.Body>
-                    </Card>
-                </Col>
+                })  
+              }
 
-                <Col sm={4} xs={12} className="mb-4">
-                    <Card>
-                      <Card.Img variant="top" src='https://media.istockphoto.com/id/855341578/photo/creativity-checked.jpg?b=1&s=170667a&w=0&k=20&c=NHeyPIHEWmztch-Hb9wVZ1VNwIdQvOFsayk8HTz4XCg=' alt='img'/>
-                      <Card.Body>
-                        <Card.Title className='text-center'>
-                          great development in Nigeria Politics
-                        </Card.Title>
-                        <Card.Text className='text-center'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate.
-                        </Card.Text>
-                        <Button  className='btn-btn w-100'><Link to="/blog">Read More</Link></Button>
-                      </Card.Body>           
-                    </Card>
-                </Col>
 
               </Row>
             </Col>
