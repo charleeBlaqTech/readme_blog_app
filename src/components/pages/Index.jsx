@@ -35,7 +35,7 @@ const Index = () => {
                         <Col sm={12} xs={12}>
                           <Card>
                             <Card.Subtitle className='text-center p-2'>
-                              {item.category}
+                              {item.category.toUpperCase()}
                             </Card.Subtitle>
                           <Card.Img variant="top" src={item.image} alt='img'/>
                           <Card.Body>
@@ -62,7 +62,7 @@ const Index = () => {
                     <Col sm={12} xs={12} className="mb-4">
                       <Card >
                             <Card.Subtitle className='text-center fs-large'>
-                              {item.category}
+                              {item.category.toUpperCase()}
                             </Card.Subtitle>
                         <Card.Img variant="top" src={item.image} alt='img'/>
                         <Card.Body>

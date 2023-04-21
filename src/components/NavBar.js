@@ -4,8 +4,16 @@ import {FaBlog,
         FaHome, 
         FaHamburger,
         FaDropbox,
-        FaBabyCarriage,
-        FaTimes
+        FaTimes,
+        FaPhone,
+        FaSign,
+        FaBlogger,
+        FaPlane,
+        FaFootballBall,
+        FaSuitcase,
+        FaNewspaper,
+        FaCar,
+        
 } from "react-icons/fa"
 import "./NavBarStyles.css";
 
@@ -24,25 +32,26 @@ const NavBar = () => {
 
   return (
     <nav id='navbar'>
-        <h2 className='nav-logo'><Link to="/"><FaBlog className='FaBlog'/> ReaDME</Link></h2>
+        <h2 className='nav-logo'><Link to="/blogs"><FaBlog className='FaBlog'/> ReaDME</Link></h2>
         <div className='hamburger'>
           <FaHamburger className='FaHamburger' onClick={handleClick}/>
         </div>
     
         <ul className='nav-menu' ref={navRef}>
-            <li><NavLink to="/posts" activeClassName="active" onClick={handleClick}><FaHome className='FaHome'/>Home</NavLink></li>
-            <li><NavLink  activeClassName="active">Category<FaDropbox onClick={categoryHandleClick}  fontSize={10}/></NavLink>
+            <li><NavLink to="/blogs" activeClassName="active" onClick={handleClick}><FaHome className='FaHome'/>Home</NavLink></li>
+            <li><NavLink  activeClassName="active"><FaBlogger/>Category<FaDropbox onClick={categoryHandleClick}  fontSize={10}/></NavLink>
                 <div className={ category ? 'nav-categories-wrapper showCategories': "nav-categories-wrapper"}>
                       <ul>
-                          <li><Link><FaBabyCarriage/>  Travelling</Link></li>
-                          <li><Link><FaBabyCarriage/>  Fashion</Link></li>
-                          <li><Link><FaBabyCarriage/>  Politics </Link></li>
-                          <li><Link><FaBabyCarriage/>  Lifestyle </Link></li>
+                          <li><Link to="/blogs/category/travelling"><FaPlane/>  Travelling</Link></li>
+                          <li><Link to="/blogs/category/fashion"><FaSuitcase/>  Fashion</Link></li>
+                          <li><Link to="/blogs/category/politics"><FaNewspaper/>  Politics </Link></li>
+                          <li><Link to="/blogs/category/lifestyle"><FaCar/>  Lifestyle </Link></li>
+                          <li><Link to="/blogs/category/sport"><FaFootballBall/>  Sport </Link></li>
                       </ul>
                 </div>
             </li>
-            <li><NavLink to="/contact" activeClassName="active" onClick={handleClick}>Contact</NavLink></li>
-            <li><NavLink to="/signup" activeClassName="active" onClick={handleClick}>SignUp</NavLink></li> 
+            <li><NavLink to="/contact" activeClassName="active" onClick={handleClick}><FaPhone/>Contact</NavLink></li>
+            <li><NavLink to="/signup" activeClassName="active" onClick={handleClick}><FaSign/>SignUp</NavLink></li> 
             <div className="menu-exit-wrapper">
             <FaTimes className='FaTimes'  onClick={handleClick}/>
             </div> 

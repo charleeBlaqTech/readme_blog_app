@@ -54,8 +54,8 @@
     position: absolute;
     top: 30px;
     left: -4rem;
-    padding: 0;
-    background-color: var(--backgroundColor2);
+    padding-bottom: 18px;
+    background-color: var(--backgroundColor1);
     border-radius: var(--btnBorderRadius);
     transition: 1.4s;
     display: none;
@@ -138,6 +138,23 @@
         display: block;
     }
     #navbar .hamburger{
+        display: block;
+    }
+    .nav-categories-wrapper{
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: 45px;
+        left: -4rem;
+        padding-bottom: 18px;
+        background-color: var(--backgroundColor1);
+        border-radius: var(--btnBorderRadius);
+        transition: 1.4s;
+        display: none;
+        z-index: 999;
+    
+    }
+    .showCategories{
         display: block;
     }
     .showNavMenu{

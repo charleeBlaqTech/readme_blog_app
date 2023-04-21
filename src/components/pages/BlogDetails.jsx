@@ -60,7 +60,7 @@ const BlogDetails = () => {
   return (
     <Fragment>
         <NavBar/>
-        <Container className="pt-5 bg-dark h-vh" fluid>
+        <Container className="pt-5 bg-dark vh-100" fluid>
             <Container className="pt-5" >
                 <Row className="pt-5" >
                     <Col sm={7} xs={12} className="m-auto">
@@ -110,6 +110,10 @@ const BlogDetails = () => {
                             <label htmlFor="">Travelling
                                 <br />
                                 <input type="radio" name="category" value="travelling" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
+                            </label>
+                            <label htmlFor="">Sport
+                                <br />
+                                <input type="radio" name="category" value="sport" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
                             </label>
 
                             <Button onClick={handleUpdateClick} className='btn-btn w-100 m-auto'>Update Post</Button>
