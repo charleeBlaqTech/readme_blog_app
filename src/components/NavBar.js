@@ -5,7 +5,6 @@ import {FaBlog,
         FaHamburger,
         FaDropbox,
         FaBabyCarriage,
-        FaDog,
         FaTimes
 } from "react-icons/fa"
 import "./NavBarStyles.css";
@@ -31,7 +30,7 @@ const NavBar = () => {
         </div>
     
         <ul className='nav-menu' ref={navRef}>
-            <li><NavLink to="/" activeClassName="active" onClick={handleClick}><FaHome className='FaHome'/>Home</NavLink></li>
+            <li><NavLink to="/posts" activeClassName="active" onClick={handleClick}><FaHome className='FaHome'/>Home</NavLink></li>
             <li><NavLink  activeClassName="active">Category<FaDropbox onClick={categoryHandleClick}  fontSize={10}/></NavLink>
                 <div className={ category ? 'nav-categories-wrapper showCategories': "nav-categories-wrapper"}>
                       <ul>
@@ -39,7 +38,6 @@ const NavBar = () => {
                           <li><Link><FaBabyCarriage/>  Fashion</Link></li>
                           <li><Link><FaBabyCarriage/>  Politics </Link></li>
                           <li><Link><FaBabyCarriage/>  Lifestyle </Link></li>
-                          <li><Link><FaDog/>  Pets</Link></li>
                       </ul>
                 </div>
             </li>

@@ -1,6 +1,6 @@
 :root{
-  --backgroundColor1: #9EA681;
-  --backgroundColor2: #6E754B;
+  --backgroundColor1: #FF176B;
+  --backgroundColor2: #FFF;
   --btnBgColor1: #1B1C1E;
   --btnBgColor2: #2C3C1F;
   --text1: #171B0A;
@@ -32,6 +32,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--backgroundColor1);
 }
 
 code {
@@ -40,10 +41,10 @@ code {
 }
 
 a{
-  color: var(--text1);
+  color: var(--text2);
 }
 
-.btn{
+.contact-submit{
   width: var(--btnWidth);
   height: var(--btnHeight);
   background-color: var(--btnBgColor1);
@@ -54,7 +55,7 @@ a{
   cursor: pointer;
   
 }
-.btn:hover{
+.contact-submit:hover{
   background-color: var(--btnBgColor2);
 }
 

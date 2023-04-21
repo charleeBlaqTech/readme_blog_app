@@ -17,4 +17,17 @@
   --btnBorder: 2px solid #fff;
 }
 
+.landing-blog-section{
+  min-height: 100vh;
+  background-color: var(--backgroundColor1);
+  padding-top: 100px;
+}
 
+.btn-btn.w-100{
+  background-color: var(--btnBgColor1);
+  border: var(--btnBorder);
+}
+.btn-btn.w-100 a{
+  color:var(--btnTxtColor1);
+  text-decoration: none;
+}

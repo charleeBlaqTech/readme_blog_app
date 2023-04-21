@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <Fragment>
     <NavBar/>
-    <section className="contact section-padding" id="contact">
+    <section className="contact section-padding bg-dark" id="contact">
         <div className="contact-contents-container">
             <div className="section-title">
                 <h2 className="title">contact us</h2>
@@ -16,19 +16,19 @@ const Contact = () => {
             <div className="contact-wrapper contact-grid">
                 <div className="contact-info">
                     <div className="contact-info-item">
-                        <FaMap className='contact-info-items-icon'/>
+                        <FaMap className='contact-info-items-icon bg-light'/>
                         <h3>Address</h3>
                         <p>8, Ekere Street comfort Oboh,kirikiri town, lagos</p>
                     </div>
 
                     <div className="contact-info-item">
-                        <FaPhone className='contact-info-items-icon'/>
+                        <FaPhone className='contact-info-items-icon bg-light'/>
                         <h3>Call Us</h3>
                         <p>+234 8101605165..</p>
                     </div>
                     <div className="contact-info-item">
                         
-                        <FaEnvelope className='contact-info-items-icon'/>
+                        <FaEnvelope className='contact-info-items-icon bg-light'/>
                         <h3>Email Us</h3>
                         <p>dauducharles1994@gmail.com</p>
                     </div>
@@ -51,7 +51,7 @@ const Contact = () => {
                             ></textarea>
                         </div>
                         <div className="btn-wrap">
-                            <button type="submit" className="btn"> Send Message </button>
+                            <button type="submit" className="contact-submit bg-light"> Send Message </button>
                         </div>
                     </form>
                 </div>

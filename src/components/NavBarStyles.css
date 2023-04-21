@@ -1,6 +1,6 @@
 :root{
-    --backgroundColor1: #9EA681;
-    --backgroundColor2: #6E754B;
+    --backgroundColor1: #FF176B;
+    --backgroundColor2: #FFF;
     --btnBgColor1: #1B1C1E;
     --btnBgColor2: #2C3C1F;
     --text1: #171B0A;
@@ -17,9 +17,8 @@
     --btnBorder: 2px solid #fff;
   }
 
-
 .active{
-    color: var(--text1);
+    color: var(--text2);
 }
 #navbar{
     width: 95%;
@@ -50,11 +49,11 @@
     
 }
 .nav-categories-wrapper{
-    width: 130px;
+    width: 200px;
     height: 200px;
     position: absolute;
     top: 30px;
-    left: -21px;
+    left: -4rem;
     padding: 0;
     background-color: var(--backgroundColor2);
     border-radius: var(--btnBorderRadius);
@@ -96,6 +95,7 @@
 }
 
 #navbar a{
+    color: var(--text1);
     text-decoration: none;
     cursor: pointer;
     transition: var(--transition);
