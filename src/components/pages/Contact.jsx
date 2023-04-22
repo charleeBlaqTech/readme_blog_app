@@ -1,4 +1,6 @@
 import React,{Fragment} from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import {Container, Row, Col} from "react-bootstrap";
 import "../assets/css/ContactStyles.css";
 import {FaMap, FaPhone, FaEnvelope} from "react-icons/fa"
 import NavBar from "../NavBar";
@@ -7,60 +9,86 @@ const Contact = () => {
   return (
     <Fragment>
     <NavBar/>
-    <section className="contact section-padding bg-dark" id="contact">
-        <div className="contact-contents-container">
-            <div className="section-title">
+    <Container className="bg-dark pt-5 d-flex flex-column justify-content-evenly align-items-center" style={contactContainerStyles} fluid>
+        <Row className="bg-dark text-light text-center pt-3">
+            <Col xs={12}>
                 <h2 className="title">contact us</h2>
                 <h2 className="sub-title">have any question?</h2>
-            </div>
-            <div className="contact-wrapper contact-grid">
-                <div className="contact-info">
-                    <div className="contact-info-item">
-                        <FaMap className='contact-info-items-icon bg-light'/>
-                        <h3>Address</h3>
-                        <p>8, Ekere Street comfort Oboh,kirikiri town, lagos</p>
-                    </div>
+            </Col>
+        </Row>
+        <Row className=" p-1">
 
-                    <div className="contact-info-item">
-                        <FaPhone className='contact-info-items-icon bg-light'/>
-                        <h3>Call Us</h3>
-                        <p>+234 8101605165..</p>
-                    </div>
-                    <div className="contact-info-item">
-                        
-                        <FaEnvelope className='contact-info-items-icon bg-light'/>
-                        <h3>Email Us</h3>
-                        <p>dauducharles1994@gmail.com</p>
-                    </div>
-                </div>
+            <Col xs={12} sm={6} className="text-light p-2 m-auto">
+                   <Row>
+                        <Col xs={12}>
+                            <h3> <FaMap className='contact-info-items-icon bg-dark'/> Address</h3>
+                        </Col>
+                        <Col xs={12}>
+                            <p>8, Ekere Street comfort Oboh,kirikiri town, lagos</p>
+                        </Col>
+                   </Row>
+                   <Row>
+                        <Col xs={12}>
+                            <h3><FaPhone className='contact-info-items-icon bg-dark'/> Call Us</h3>
+                        </Col>
+
+                        <Col xs={12}>
+                            <p>+234 8101605165..</p>
+                        </Col>
+                   </Row>
+                   <Row>
+                        <Col xs={12}>
+                            <h3><FaEnvelope className='contact-info-items-icon bg-dark'/> Email Us</h3>
+                        </Col>
+
+                        <Col xs={12}>
+                            <p>dauducharles1994@gmail.com</p>
+                        </Col>
+                   </Row>
+                  
+            </Col>
                 
-                <div className="contact-form">
-                    <form >
-                        <div className="input-box">
-                            <input type="text" placeholder="Name" className="input-control" name="name" required/>
-                        </div>
-                        <div className="input-box">
-                            <input type="text" placeholder="Email" className="input-control" name="email" required/>
-                        </div>
-                        <div className="input-box">
-                            <input type="text" placeholder="Phone" className="input-control" name="phone" required/>
-                        </div>
-                        <div className="input-box">
-                            <textarea placeholder="Message" className="input-control"
+            <Col xs={12} sm={6} className=" p-1 m-auto">
+                        <form  className="d-flex flex-column justify-content-center align-items-center w-100">
+                            
+                            <input type="text" placeholder="Name"  style={inputStyles} className="w-100 mb-1 rounded-2 text-center " name="name" required/>
+                            
+                            <input type="text" placeholder="Email" style={inputStyles} className="w-100 mb-1 rounded-2 text-center " name="email" required/>
+                            
+                            <input type="text" placeholder="Phone" style={inputStyles} className="w-100 mb-1 rounded-2 text-center " name="phone" required/>
+                           
+                            <textarea placeholder="Message" style={inputStyles} className="w-100 mb-1 rounded-2 text-center"
                             name="message"
                             ></textarea>
-                        </div>
-                        <div className="btn-wrap">
-                            <button type="submit" className="contact-submit bg-light"> Send Message </button>
-                        </div>
-                    </form>
-                </div>
 
-            </div>
-        </div>
-    </section>
+                            <div className="btn-wrap">
+                                <button type="submit" style={btnStyles} className="contact-submit"> Send Message </button>
+                            </div>
+                        </form>
+            </Col>
+
+        </Row>
+
+    </Container>     
+
+           
     </Fragment>
   )
+}
+
+const contactContainerStyles={
+    height:"100vh",
+
+}
+const inputStyles={
+    height:"45px",
+
+}
+const btnStyles={
+    height:"45px",
+    backgroundColor: "white",
+    color: "#000"
+
 }
 
 export default Contact

@@ -12,6 +12,7 @@ const BlogDetails = () => {
     const [updateImage, setUpdateImage]             = useState('');
     const [updateDescription, setUpdateDescription] = useState('');
     const [updateCategory, setUpdateCategory]       = useState("");
+    const [displayMainBlog, setDisplayMainBlog] = useState(true);
     const [displayEditColumn, setDisplayEditColumn] = useState(false);
 
 
@@ -47,6 +48,7 @@ const BlogDetails = () => {
 
     const handleShowEditClick= ()=>{
         setDisplayEditColumn(!displayEditColumn);
+        setDisplayMainBlog(!displayMainBlog);
     }
     const handleDeleteClick=   ()=>{
         const blogDelete= async()=>{
@@ -60,68 +62,68 @@ const BlogDetails = () => {
   return (
     <Fragment>
         <NavBar/>
-        <Container className="pt-5 bg-dark vh-100" fluid>
+        <Container className="bg-dark vh-100 pt-5" fluid>
             <Container className="pt-5" >
-                <Row className="pt-5" >
-                    <Col sm={7} xs={12} className="m-auto">
-                        <Card>
+                <Row className="pt-2" >
+                    {displayMainBlog &&
+                    <Col sm={8} xs={12} className="m-auto h-75">
+                        <Card className=" h-75" >
                             <Card.Subtitle className='text-center fs-large' >
                               {postShow.category}
                             </Card.Subtitle>
-                            <Card.Img variant="top" src={postShow.image} />
+                            <Card.Img variant="top" src={postShow.image} style={{height: "300px"}} />
                             <Card.Body>
                                 <Card.Title>{postShow.title}</Card.Title>
                                 <Card.Text>
                                     {postShow.description}
                                 </Card.Text>
-
-                                <Button onClick={handleShowEditClick} className='btn-btn w-100 m-auto'>Edit Blog</Button>
-                                <Button onClick={handleDeleteClick} className='btn-btn w-100 m-auto'>Delete Blog</Button>
-                                
-                                
+                                <Container className='d-flex justify-content-between align-items-center'>
+                                    <Button onClick={handleShowEditClick} className='btn-btn w-100 m-auto'>Edit Blog</Button>
+                                    <Button onClick={handleDeleteClick} className='btn-btn w-100 m-auto'>Delete Blog</Button>
+                                </Container>                               
                             </Card.Body>
                             <Card.Footer>
-                            <small className="text-muted">{postShow.created}</small>
+                                <small className="text-muted">POSTED: {postShow.created}</small>
                             </Card.Footer>
                         </Card>
                     </Col>
-                    { displayEditColumn &&
-                    <Col sm={4} xs={12}>
+                    }
+                    {displayEditColumn &&
+                    <Col sm={8} xs={12} className="m-auto">
                         <form className='d-flex flex-column text-light'>
 
                             <input type="text" name="title" onChange={(e)=>{setUpdateTitle(e.target.value)}} defaultValue={postShow.title} placeholder="post title" className='form-control mb-2'/>
                             <input type="text" name="image" onChange={(e)=>{setUpdateImage(e.target.value)}} defaultValue={postShow.image} placeholder='enter image string' className='form-control mb-2'/>
                             <textarea name="description" onChange={(e)=>{setUpdateDescription(e.target.value)}} cols="30" rows="10" defaultValue={postShow.description} placeholder='enter description' className='form-control mb-2'></textarea>
-                            <label htmlFor="">Politics
-                                <br />
-                                <input type="radio" name="category" value="politics" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
-                            </label>
+                            <Container className='d-flex justify-content-between align-items-center'>
+                                <label htmlFor="">Politics
+                                
+                                    <input type="radio" name="category" value="politics" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
+                                </label>
 
-                            <label htmlFor="">Fashion
-                                <br />
-                                <input type="radio" name="category" value="fashion" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
-                            </label>
+                                <label htmlFor="">Fashion
+                                
+                                    <input type="radio" name="category" value="fashion" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
+                                </label>
 
-                            <label htmlFor="">Lifestyle
-                                <br />
-                                <input type="radio" name="category" value="lifestyle" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
-                            </label>
+                                <label htmlFor="">Lifestyle
+                                
+                                    <input type="radio" name="category" value="lifestyle" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
+                                </label>
 
-                            <label htmlFor="">Travelling
-                                <br />
-                                <input type="radio" name="category" value="travelling" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
-                            </label>
-                            <label htmlFor="">Sport
-                                <br />
-                                <input type="radio" name="category" value="sport" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
-                            </label>
-
+                                <label htmlFor="">Travelling
+                                
+                                    <input type="radio" name="category" value="travelling" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
+                                </label>
+                                <label htmlFor="">Sport
+                                    <input type="radio" name="category" value="sport" onChange={(e)=>{setUpdateCategory(e.target.value)}} required />
+                                </label>
+                            </Container>
                             <Button onClick={handleUpdateClick} className='btn-btn w-100 m-auto'>Update Post</Button>
                         </form>
                     </Col>
                     }
                 </Row>
-
             </Container>
 
         </Container>

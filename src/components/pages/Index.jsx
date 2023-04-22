@@ -81,6 +81,67 @@ const Index = () => {
               </Row>
             </Col>
           </Row>
+
+          <Row className='p-2'>
+            <Col>
+                <h3 className='text-light'>POLITICS TRENDING NEWS THIS WEEK</h3>
+            </Col>
+          </Row>
+
+          <Row className='mb-5'>
+              {
+                postsData[1].map((item)=>{
+                  return(
+                    <Col sm={4} xs={12}>
+                        <Card>
+                            <Card.Subtitle className='text-center p-2'>
+                              {item.category.toUpperCase()}
+                            </Card.Subtitle>
+                        <Card.Img variant="top" src={item.image} alt='img'/>
+                        <Card.Body>
+                        <Card.Title className='text-center'>
+                            {item.title}
+                        </Card.Title>
+                        <Button className='btn-btn w-100'><Link to={`/blogs/${item._id}`}>Read More</Link></Button>
+                        </Card.Body>
+                        </Card>
+
+                    </Col>
+                  )
+                })
+              }
+          </Row>
+
+          <Row className='p-2'>
+            <Col>
+                <h3 className='text-light'>SPORTS TRENDING NEWS THIS WEEK</h3>
+            </Col>
+          </Row>
+          
+          <Row className='mb-5'>
+              {
+                postsData[1].map((item)=>{
+                  return(
+                    <Col sm={4} xs={12}>
+                        <Card>
+                            <Card.Subtitle className='text-center p-2'>
+                              {item.category.toUpperCase()}
+                            </Card.Subtitle>
+                        <Card.Img variant="top" src={item.image} alt='img'/>
+                        <Card.Body>
+                        <Card.Title className='text-center'>
+                            {item.title}
+                        </Card.Title>
+                        <Button className='btn-btn w-100'><Link to={`/blogs/${item._id}`}>Read More</Link></Button>
+                        </Card.Body>
+                        </Card>
+
+                    </Col>
+
+                  )
+                })
+              }
+          </Row>
         </Container>
         
     </Fragment>
