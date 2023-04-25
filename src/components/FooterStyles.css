@@ -1,0 +1,18 @@
+:root{
+    --backgroundColor1: #FF176B;
+    --backgroundColor2: #FFF;
+    --btnBgColor1: #1B1C1E;
+    --btnBgColor2: #2C3C1F;
+    --text1: #171B0A;
+    --text2: #FFF;
+    --fontSizeBG: 24px;
+    --fontSizeMD: 18px;
+    --fontSizeSM: 14px;
+    --btnWidth: 220px;
+    --btnHeight: 50px;
+    --btnTxtColor1: #fff;
+    --btnTxtColor2: #171B0A;
+    --transition: ease-in-out;
+    --btnBorderRadius: 13px;
+    --btnBorder: 2px solid #fff;
+  }

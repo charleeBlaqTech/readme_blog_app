@@ -51,6 +51,7 @@ const NavBar = () => {
                 </div>
             </li>
             <li><NavLink to="/contact" activeClassName="active" onClick={handleClick}><FaPhone/>Contact</NavLink></li>
+            <li><NavLink to="/signin" activeClassName="active" onClick={handleClick}><FaSign/>SignIn</NavLink></li> 
             <li><NavLink to="/signup" activeClassName="active" onClick={handleClick}><FaSign/>SignUp</NavLink></li> 
             <div className="menu-exit-wrapper">
             <FaTimes className='FaTimes'  onClick={handleClick}/>

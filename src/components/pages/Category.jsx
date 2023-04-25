@@ -32,7 +32,7 @@ const Category = () => {
 
                   return (
 
-                    <Col sm={4} xs={12} className="mb-4">
+                    <Col sm={4} xs={12} key={item._id} className="mb-4">
                       <Card >
                             <Card.Subtitle className='text-center fs-large'>
                               {item.category.toUpperCase()}

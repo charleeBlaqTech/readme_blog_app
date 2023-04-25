@@ -29,7 +29,7 @@ const BlogNew = () => {
           },
           body:JSON.stringify(body)
 
-        }).then(response=> response.json()).then(data=>console.log(data) );
+        }).then(response=> response.json());
 
         }
         sendData();
@@ -44,31 +44,31 @@ const BlogNew = () => {
           <Col sm={6} xs={12} className='mx-auto'>
             <Card className=' bg-dark pt-5'>
               <form  className='d-flex flex-column text-light'>
-                  <input type="text" name="title" onChange={(e)=>{setTitle(e.target.value)}} placeholder="post title" className='form-control mb-2'/>
-                  <input type="text" name="image" onChange={(e)=>{setImage(e.target.value)}} placeholder='enter image string' className='form-control mb-2'/>
-                  <textarea name="description" onChange={(e)=>{setDescription(e.target.value)}} cols="30" rows="10" placeholder='enter description' className='form-control mb-2'></textarea>
+                  <input type="text" name="title" onChange={(e)=>{setTitle(e.target.value)}} placeholder="post title" className='form-control mb-2'required/>
+                  <input type="text" name="image" onChange={(e)=>{setImage(e.target.value)}} placeholder='enter image string' className='form-control mb-2'required/>
+                  <textarea name="description" onChange={(e)=>{setDescription(e.target.value)}} cols="30" rows="10" placeholder='enter description' className='form-control mb-2'required></textarea>
                   <Container className='d-flex justify-content-between align-items-center'>
                       <label htmlFor="">Politics
                         
-                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="politics" id="" />
+                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="politics" id="" required/>
                       </label>
           
                       <label htmlFor="">Fashion
                         
-                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="fashion" id="" />
+                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="fashion" id="" required/>
                       </label>
                       
                       <label htmlFor="">Lifestyle
                         
-                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="lifestyle" id="" />
+                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="lifestyle" id="" required/>
                       </label>
                       
                       <label htmlFor="">Travelling
                         
-                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="travelling" id="" />
+                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="travelling" id="" required/>
                       </label>
                       <label htmlFor="">Sport
-                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="sport" id="" />
+                        <input type="radio" name="category" onChange={(e)=>{setCategory(e.target.value)}} value="sport" id="" required/>
                       </label>
                   </Container>
                  

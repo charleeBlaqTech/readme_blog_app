@@ -92,9 +92,9 @@ const BlogDetails = () => {
                     <Col sm={8} xs={12} className="m-auto">
                         <form className='d-flex flex-column text-light'>
 
-                            <input type="text" name="title" onChange={(e)=>{setUpdateTitle(e.target.value)}} defaultValue={postShow.title} placeholder="post title" className='form-control mb-2'/>
-                            <input type="text" name="image" onChange={(e)=>{setUpdateImage(e.target.value)}} defaultValue={postShow.image} placeholder='enter image string' className='form-control mb-2'/>
-                            <textarea name="description" onChange={(e)=>{setUpdateDescription(e.target.value)}} cols="30" rows="10" defaultValue={postShow.description} placeholder='enter description' className='form-control mb-2'></textarea>
+                            <input type="text" name="title" onChange={(e)=>{setUpdateTitle(e.target.value)}} defaultValue={postShow.title} placeholder="post title" className='form-control mb-2'required/>
+                            <input type="text" name="image" onChange={(e)=>{setUpdateImage(e.target.value)}} defaultValue={postShow.image} placeholder='enter image string' className='form-control mb-2'required/>
+                            <textarea name="description" onChange={(e)=>{setUpdateDescription(e.target.value)}} cols="30" rows="10" defaultValue={postShow.description} placeholder='enter description' className='form-control mb-2'required></textarea>
                             <Container className='d-flex justify-content-between align-items-center'>
                                 <label htmlFor="">Politics
                                 

@@ -32,7 +32,7 @@ const Index = () => {
                   {
                     postsData[1].map((item)=>{
                       return(
-                        <Col sm={12} xs={12}>
+                        <Col sm={12} xs={12} key={item._id}>
                           <Card>
                             <Card.Subtitle className='text-center p-2'>
                               {item.category.toUpperCase()}
@@ -59,7 +59,7 @@ const Index = () => {
                 postsData[0].map((item)=>{
 
                   return (
-                    <Col sm={12} xs={12} className="mb-4">
+                    <Col sm={12} xs={12} key={item._id} className="mb-4">
                       <Card >
                             <Card.Subtitle className='text-center fs-large'>
                               {item.category.toUpperCase()}
@@ -92,7 +92,7 @@ const Index = () => {
               {
                 postsData[1].map((item)=>{
                   return(
-                    <Col sm={4} xs={12}>
+                    <Col sm={4} xs={12} key={item._id}>
                         <Card>
                             <Card.Subtitle className='text-center p-2'>
                               {item.category.toUpperCase()}
@@ -122,7 +122,7 @@ const Index = () => {
               {
                 postsData[1].map((item)=>{
                   return(
-                    <Col sm={4} xs={12}>
+                    <Col sm={4} xs={12} key={item._id}>
                         <Card>
                             <Card.Subtitle className='text-center p-2'>
                               {item.category.toUpperCase()}

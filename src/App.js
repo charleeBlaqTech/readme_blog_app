@@ -6,7 +6,9 @@ import Contact            from "../src/components/pages/Contact";
 import Index              from "../src/components/pages/Index";
 import BlogNew            from '../src/components/pages/BlogNew'
 import BlogDetail         from "../src/components/pages/BlogDetails";
-import Category           from "../src/components/pages/Category"
+import Category           from "../src/components/pages/Category";
+import SignIn             from './components/SignIn';
+import SignUp             from './components/SignUp';
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path='/blogs/:id' element={<BlogDetail/>}/>
         <Route path='/blogs/category/:name' element={<Category/>}/>
         <Route path='/contact' element={<Contact/>} />
+        <Route path='/signin' element={<SignIn/>} />
+        <Route path='/signup' element={<SignUp/>} />
       </Routes>
     </div>
   );
