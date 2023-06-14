@@ -1,25 +1,48 @@
 import React,{Fragment, useEffect,useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import "../assets/css/IndexStyles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Container, Row, Col, Card,Button} from "react-bootstrap";
 import NavBar from "../NavBar";
+// import BlogContext from '../BlogContext'
 
 
 const Index = () => {
-  const [postsData, setPostsData] = useState([[],[]]);
+  const [postsData, setPostsData] = useState([[],[],[],[]]);
+  const [currentUser, setCurrentUser]= useState(null);
+  const navigate= useNavigate();
 
   useEffect(()=>{
-      fetch('http://localhost:1100/blogs').then(response=>response.json()).then((data)=>{
-        setPostsData(data);  
+      fetch('https://readmeblog.onrender.com/blogs',{
+        method: "GET",
+        withCredentials: true,
+        headers:{
+          'Access-Control-Allow-Origin':"*",
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Cache': 'no-cache'
+      },
+      credentials: "include"
+      }).then(response=>response.json()).then((data)=>{
+            if(data.blogs && data.status=== 200){
+              setPostsData(data.blogs);
+               setCurrentUser(data.user);
+            }else if(data.status === 400 || data.status=== 404){
+                navigate('/signin');
+            } 
       })
-  }, [])
+  }, [postsData])
 
-     
+    
   return (
+    
     <Fragment>
-        <NavBar/>
-        <Container className='landing-blog-section' fluid>
+      
+        <NavBar
+        userDetails={currentUser}
+        />
+        
+        <Container className='landing-blog-section mb-0' fluid>
           <Row className='p-5'>
             <Col>
                 <h1 className='text-light'>BEST OF THE WEEK</h1>
@@ -30,7 +53,7 @@ const Index = () => {
             <Col sm={8} className="mb-4">
                 <Row>
                   {
-                    postsData[1].map((item)=>{
+                    postsData[0].map((item)=>{
                       return(
                         <Col sm={12} xs={12} key={item._id}>
                           <Card>
@@ -56,7 +79,7 @@ const Index = () => {
             <Col sm={4}>
               <Row>
               {
-                postsData[0].map((item)=>{
+                postsData[1].map((item)=>{
 
                   return (
                     <Col sm={12} xs={12} key={item._id} className="mb-4">
@@ -88,9 +111,9 @@ const Index = () => {
             </Col>
           </Row>
 
-          <Row className='mb-5'>
+          <Row className='pb-4'>
               {
-                postsData[1].map((item)=>{
+                postsData[2].map((item)=>{
                   return(
                     <Col sm={4} xs={12} key={item._id}>
                         <Card>
@@ -112,15 +135,19 @@ const Index = () => {
               }
           </Row>
 
-          <Row className='p-2'>
+         
+        </Container>
+        
+        <Container className='landing-blog-section-2 mt-0' fluid>
+          <Row className='p-4'>
             <Col>
                 <h3 className='text-light'>SPORTS TRENDING NEWS THIS WEEK</h3>
             </Col>
           </Row>
           
-          <Row className='mb-5'>
+          <Row className='pb-5'>
               {
-                postsData[1].map((item)=>{
+                postsData[3].map((item)=>{
                   return(
                     <Col sm={4} xs={12} key={item._id}>
                         <Card>
@@ -144,7 +171,9 @@ const Index = () => {
           </Row>
         </Container>
         
+     
     </Fragment>
+ 
   )
 }
 

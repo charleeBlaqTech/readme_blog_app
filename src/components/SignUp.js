@@ -3,15 +3,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./SignUpStyles.css"
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+// import BlogContext from './BlogContext';
 
 
 
 const SignUp = () => {
-
+    // const { setIsLoggedIn} = useContext(BlogContext);
     const [newUserFullName, setNewUserFullName]             = useState('');
     const [newUserUserName, setNewUserUserName]             = useState('');
     const [newUserPassword, setNewUserPassword]             = useState('');
     const [newUserEmail, setNewUserEmail]                   = useState('');
+    const [statusMessage, setStatusMessage]                 = useState('');
     const navigate= useNavigate();
 
 
@@ -27,28 +29,36 @@ const SignUp = () => {
         e.preventDefault();
         const registerThisUser= async ()=>{
 
-            await fetch('http://localhost:1100/signup', {
+            await fetch('https://readmeblog.onrender.com/signup', {
                 method:'POST',
+                withCredentials: true,
                 headers:{
-                  'content-type': "application/json",
-                //   withCredentials: true,
+                    'Access-Control-Allow-Origin':"*",
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Cache': 'no-cache'
                 },
+                credentials: "include",
                 body:JSON.stringify(body)
       
               }).then(response=>
               response.json()
-            ).then((data)=>{   
-                if(data.status === "user created"){
-                    navigate('/blogs');
-                }else{
+            ).then((data)=>{ 
+                setStatusMessage(data.message) 
+                if(data.status === 201 || data.status === 200){
+                    navigate("/signin");
+                }else if(data.status === 400 || data.status === 404){
                     navigate('/signup');
+                }
+            }).catch((error)=>{
+                if(error.status === 400 || error.status === 404){
+                    navigate('/signin');
                 }
             })
         }
     
         registerThisUser();
     }
-
 
     const handleInputValue =(e)=>{
         e.preventDefault();
@@ -71,6 +81,9 @@ const SignUp = () => {
                 <Col sm={5} xs={12} className='mx-auto mt-5'>
                     <div className='heading'>
                         <h4>Wellcome To ReadMe Blog Platform</h4>
+                    </div>
+                    <div className='status-message text-center text-danger'>
+                        <h6>{statusMessage}</h6>
                     </div>
                     <div className='form-wrapper'>
                         <form>

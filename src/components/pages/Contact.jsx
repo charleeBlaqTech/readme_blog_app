@@ -1,4 +1,5 @@
-import React,{Fragment} from 'react';
+import React,{Fragment, useEffect,useState} from 'react';
+import { useNavigate} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Container, Row, Col} from "react-bootstrap";
 import "../assets/css/ContactStyles.css";
@@ -6,9 +7,32 @@ import {FaMap, FaPhone, FaEnvelope} from "react-icons/fa"
 import NavBar from "../NavBar";
 
 const Contact = () => {
+    const [currentUser, setCurrentUser]= useState(null);
+    const navigate= useNavigate();
+
+    useEffect(()=>{
+        fetch('https://readmeblog.onrender.com/contact',{
+          method: "GET",
+          withCredentials: true,
+          headers:{
+            'Access-Control-Allow-Origin':"*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Cache': 'no-cache'
+        },
+        credentials: "include"
+        }).then(response=>response.json()).then((data)=>{
+              if(data.status === 200){
+                 setCurrentUser(data.user);
+              }else if(data.status === 400 || data.status=== 404){
+                  navigate('/signin');
+              } 
+        })
+    }, [])
+  
   return (
     <Fragment>
-    <NavBar/>
+    <NavBar  userDetails={currentUser}/>
     <Container className="bg-dark pt-5 d-flex flex-column justify-content-evenly align-items-center" style={contactContainerStyles} fluid>
         <Row className="bg-dark text-light text-center pt-3">
             <Col xs={12}>
