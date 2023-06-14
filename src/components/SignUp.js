@@ -33,7 +33,7 @@ const SignUp = () => {
                 method:'POST',
                 withCredentials: true,
                 headers:{
-                    'Access-Control-Allow-Origin':"*",
+                    'Access-Control-Allow-Origin':"https://trendspace.onrender.com/",
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     'Cache': 'no-cache'
