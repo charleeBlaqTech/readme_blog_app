@@ -31,12 +31,10 @@ const SignUp = () => {
 
             await fetch('https://readmeblog.onrender.com/signup', {
                 method:'POST',
-                withCredentials: true,
                 headers:{
-                    'Access-Control-Allow-Origin':"https://trendspace.onrender.com/",
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Cache': 'no-cache'
+                    'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
+                    'Access-Control-Allow-Credentials': 'true',
+                    'Content-Type': 'application/json',    
                 },
                 credentials: "include",
                 body:JSON.stringify(body)

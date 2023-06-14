@@ -24,14 +24,12 @@ const BlogDetails = () => {
     useEffect(()=>{
         fetch(`https://readmeblog.onrender.com/blogs/${id}`,{
             method: "GET",
-            withCredentials: true,
             headers:{
-              'Access-Control-Allow-Origin':"https://trendspace.onrender.com/",
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Cache': 'no-cache'
-          },
-          credentials: "include"
+                'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
+                'Access-Control-Allow-Credentials': 'true',
+                'Content-Type': 'application/json',    
+            },
+            credentials: "include",
         }
         ).then(response=>response.json()).then((data)=>{
             if(data.status===200 || data.status===201){
@@ -51,12 +49,10 @@ const BlogDetails = () => {
         const blogUpdate= async ()=>{
           await fetch(`https://readmeblog.onrender.com/blogs/${id}`, {
           method:'POST',
-          withCredentials: true,
           headers:{
-            'Access-Control-Allow-Origin':"https://trendspace.onrender.com/",
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Cache': 'no-cache'
+            'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
+            'Access-Control-Allow-Credentials': 'true',
+            'Content-Type': 'application/json',    
         },
         credentials: "include",
         body:JSON.stringify(body)
@@ -84,13 +80,11 @@ const BlogDetails = () => {
         const blogDelete= async()=>{
             await fetch(`https://readmeblog.onrender.com/blogs/${id}/delete`,{
             method: "GET",
-            withCredentials: true,
             headers:{
-              'Access-Control-Allow-Origin':"https://trendspace.onrender.com/",
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Cache': 'no-cache'
-          },
+                'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
+                'Access-Control-Allow-Credentials': 'true',
+                'Content-Type': 'application/json',    
+            },
             credentials: "include"
             }).then(response=>response.json()).then((data)=>{
                 if(data.status===200 || data.status===201){
