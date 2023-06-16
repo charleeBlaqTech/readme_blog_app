@@ -13,7 +13,9 @@ const Contact = () => {
     useEffect(()=>{
         fetch('https://readmeblog.onrender.com/contact',{
           method: "GET",
+          withCredentials: true,
           headers:{
+            // 'Access-Control-Allow-Origin':"http://localhost:3000",
             'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
             'Access-Control-Allow-Credentials': 'true',
             'Content-Type': 'application/json',    

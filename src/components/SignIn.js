@@ -17,7 +17,7 @@ const SignIn = () => {
    
 
 
-
+console.log(currentUserEmail,currentUserPassword);
     //sending a login post request using fetch to the server backend endpoint
     const handleLoginClick= (e)=>{
         e.preventDefault();
@@ -25,7 +25,10 @@ const SignIn = () => {
         const loginThisUser= async ()=>{
             await fetch('https://readmeblog.onrender.com/login', {
                 method:'POST',
+                withCredentials:true,
                 headers:{
+                    // 'Access-Control-Allow-Origin':"*",
+                    // 'Access-Control-Allow-Origin':"http://localhost:3000",
                     'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
                     'Access-Control-Allow-Credentials': 'true',
                     'Content-Type': 'application/json',    
@@ -39,7 +42,8 @@ const SignIn = () => {
               }).then(response=>
                 response.json()
                 
-            ).then((data)=>{   
+            ).then((data)=>{  
+                console.log(data) 
                 setStatusMessage(data.message) 
                 if(data.status === 200){
                     navigate(data.redirect);

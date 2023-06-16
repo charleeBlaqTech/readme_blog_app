@@ -15,16 +15,20 @@ const Index = () => {
   useEffect(()=>{
       fetch('https://readmeblog.onrender.com/blogs',{
         method: "GET",
+        withCredentials:true,
         headers:{
+          // 'Access-Control-Allow-Origin':"*",
+          // 'Access-Control-Allow-Origin':"http://localhost:3000",
           'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
           'Access-Control-Allow-Credentials': 'true',
           'Content-Type': 'application/json',    
       },
       credentials: "include"
       }).then(response=>response.json()).then((data)=>{
-            if(data.blogs && data.status=== 200){
+        console.log(data)
+            if(data.blogs && data.status === 200){
               setPostsData(data.blogs);
-               setCurrentUser(data.user);
+              setCurrentUser(data.user);
             }else if(data.status === 400 || data.status=== 404){
                 navigate('/signin');
             } 

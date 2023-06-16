@@ -17,9 +17,11 @@ const BlogNew = () => {
       method: "GET",
       withCredentials: true,
       headers:{
-        'Access-Control-Allow-Origin':"*",
+         // 'Access-Control-Allow-Origin':"http://localhost:3000",
+        'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
+        'Access-Control-Allow-Credentials': 'true',
+        'Content-Type': 'application/json', 
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
         'Cache': 'no-cache'
     },
     credentials: "include"
@@ -44,10 +46,11 @@ const BlogNew = () => {
     e.preventDefault()
 
         const sendData= async ()=>{
-          await fetch('https://readmeblog.onrender.com/blogs', {
+          await fetch('http://localhost:1100/blogs', {
             method: "POST",
             headers:{
-              'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
+              'Access-Control-Allow-Origin':"http://localhost:3000",
+              // 'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
               'Access-Control-Allow-Credentials': 'true',
               'Content-Type': 'application/json',    
           },

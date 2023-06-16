@@ -24,7 +24,9 @@ const BlogDetails = () => {
     useEffect(()=>{
         fetch(`https://readmeblog.onrender.com/blogs/${id}`,{
             method: "GET",
+            withCredentials: true,
             headers:{
+                // 'Access-Control-Allow-Origin':"http://localhost:3000",
                 'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
                 'Access-Control-Allow-Credentials': 'true',
                 'Content-Type': 'application/json',    
@@ -49,7 +51,9 @@ const BlogDetails = () => {
         const blogUpdate= async ()=>{
           await fetch(`https://readmeblog.onrender.com/blogs/${id}`, {
           method:'POST',
+          withCredentials: true,
           headers:{
+            // 'Access-Control-Allow-Origin':"http://localhost:3000",
             'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
             'Access-Control-Allow-Credentials': 'true',
             'Content-Type': 'application/json',    
@@ -80,7 +84,9 @@ const BlogDetails = () => {
         const blogDelete= async()=>{
             await fetch(`https://readmeblog.onrender.com/blogs/${id}/delete`,{
             method: "GET",
+            withCredentials: true,
             headers:{
+                // 'Access-Control-Allow-Origin':"http://localhost:3000",
                 'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
                 'Access-Control-Allow-Credentials': 'true',
                 'Content-Type': 'application/json',    
