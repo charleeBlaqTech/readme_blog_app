@@ -43,7 +43,6 @@ console.log(currentUserEmail,currentUserPassword);
                 response.json()
                 
             ).then((data)=>{  
-                console.log(data) 
                 setStatusMessage(data.message) 
                 if(data.status === 200){
                     navigate(data.redirect);

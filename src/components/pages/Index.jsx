@@ -25,7 +25,6 @@ const Index = () => {
       },
       credentials: "include"
       }).then(response=>response.json()).then((data)=>{
-        console.log(data)
             if(data.blogs && data.status === 200){
               setPostsData(data.blogs);
               setCurrentUser(data.user);
