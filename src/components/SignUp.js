@@ -32,8 +32,9 @@ const SignUp = () => {
             await fetch('https://readmeblog.onrender.com/signup', {
                 method:'POST',
                 headers:{
+                    'Access-Control-Allow-Origin':"*",
                     // 'Access-Control-Allow-Origin':"http://localhost:3000",
-                    'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
+                    // 'Access-Control-Allow-Origin':"https://trendspace.onrender.com",
                     'Access-Control-Allow-Credentials': 'true',
                     'Content-Type': 'application/json',    
                 },
